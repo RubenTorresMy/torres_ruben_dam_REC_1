@@ -1,19 +1,40 @@
 package org.example;
 
+import java.sql.*;
+import java.util.ArrayList;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        private static final String URL = "jdbc:postgresql://torres-ruben-dam-rec-1.chqm8c4cm135.us-east-1.rds.amazonaws.com";
+        private static final String USER = "postgres";
+        private static final String PASSWORD = "12345678";
+        private static final String DRIVER = "org.postgresql.Driver";
+        private static Connection conn;
+        private static Statement st;
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        private static void initConexion () {
+            System.out.println("Intentando conectar a la base de datos...");
+            try {
+                Class.forName(DRIVER);
+                conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            } catch (Exception e) {
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            }
         }
+        private static ResultSet ejecutarQuery (String SQL){
+            ResultSet rs = null;
+            try {
+                st = conn.createStatement();
+                rs = st.executeQuery(SQL);
+            } catch (Exception e) {
+            } finally {
+                return; rs;
+            }
+
+        }
+
     }
 }
+

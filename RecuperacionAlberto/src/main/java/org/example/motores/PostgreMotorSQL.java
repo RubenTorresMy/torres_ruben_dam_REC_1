@@ -1,4 +1,12 @@
 package org.example.motores;
 
-public class PostgreMotorSQL {
+import java.sql.Connection;
+
+public class PostgreMotorSQL
+        implements MotorSQL {
+
+    @Override
+    public Connection connect() {
+        return null;
+    }
 }

@@ -1,4 +1,14 @@
 package org.example.DAO;
 
-public class AbstractDAO {
+import java.sql.Connection;
+
+public abstract class AbstractDAO<T>
+        implements DAO<T> {
+
+    protected Connection conn;
+
+    public AbstractDAO(Connection conn) {
+        this.conn = conn;
+    }
+
 }

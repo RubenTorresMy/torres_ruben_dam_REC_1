@@ -1,4 +1,8 @@
 package org.example.motores;
 
-public class MotorSQL {
+import java.sql.Connection;
+
+public interface MotorSQL {
+
+    Connection connect();
 }
