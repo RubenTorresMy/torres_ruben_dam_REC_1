@@ -12,6 +12,9 @@ public class MuestrasForenses {
     private CentrosForenses centro;
     private InformesForenses informe;
 
+    public MuestrasForenses() {
+    }
+
     public MuestrasForenses(int id_muestras_forenses, String codigo_Caso, String tipo_muestra, Date fecha_recogida,
                             String estado_custodia, CentrosForenses centro, InformesForenses informe) {
         this.id_muestras_forenses = id_muestras_forenses;
